@@ -1,5 +1,7 @@
+import { PaletteMode } from "@mui/material";
+
 export interface State {
-  mode: string;
+  mode: PaletteMode;
   user: User | null;
   token: string | null;
   posts: Post[];
