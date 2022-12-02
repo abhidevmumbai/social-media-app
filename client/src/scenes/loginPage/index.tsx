@@ -1,5 +1,12 @@
+import { Box } from "@mui/material";
+import Navbar from "../navbar";
+
 const LoginPage = () => {
-  return <div>Login page</div>;
+  return (
+    <Box>
+      <div>Login page</div>
+    </Box>
+  );
 };
 
 export default LoginPage;
