@@ -1,3 +1,17 @@
+import { PaletteMode, ThemeOptions } from "@mui/material";
+
+declare module "@mui/material/styles" {
+  interface Palette {
+    neutral: {
+      dark: string;
+      main: string;
+      mediumMain: string;
+      medium: string;
+      light: string;
+    };
+  }
+}
+
 // color design tokens export
 export const colorTokens = {
   grey: {
@@ -30,7 +44,7 @@ export const colorTokens = {
 };
 
 // mui theme settings
-export const themeSettings = (mode: any) => {
+export const themeSettings = (mode: PaletteMode): ThemeOptions => {
   return {
     palette: {
       mode: mode,
@@ -51,7 +65,7 @@ export const themeSettings = (mode: any) => {
             },
             background: {
               default: colorTokens.grey[900],
-              alt: colorTokens.grey[800],
+              paper: colorTokens.grey[800],
             },
           }
         : {
@@ -70,7 +84,7 @@ export const themeSettings = (mode: any) => {
             },
             background: {
               default: colorTokens.grey[10],
-              alt: colorTokens.grey[0],
+              paper: colorTokens.grey[0],
             },
           }),
     },
