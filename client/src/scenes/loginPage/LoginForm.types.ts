@@ -5,9 +5,9 @@ export interface IValuesRegister {
   password: string;
   location: string;
   occupation: string;
-  picture: {
-    name: string;
-  };
+  // picture: {
+  //   name: string;
+  // };
 }
 
 export interface IValuesLogin {

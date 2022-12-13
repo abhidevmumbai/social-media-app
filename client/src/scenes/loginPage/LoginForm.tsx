@@ -1,21 +1,11 @@
-import { EditOutlined } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, TextField, useMediaQuery, useTheme } from "@mui/material";
 import { Formik } from "formik";
 import { useState } from "react";
-import Dropzone from "react-dropzone";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import FlexBetween from "../../components/FlexBetween";
 import { setLogin } from "../../state";
-import { IValuesLogin, IValuesRegister } from "./LoginForm.types";
+import { IValuesLogin } from "./LoginForm.types";
 
 const loginSchema = yup.object().shape({
   email: yup.string().email("invalid email").required("required"),
@@ -34,10 +24,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
-  const login = async (
-    values: IValuesRegister | IValuesLogin,
-    onSubmitProps: any
-  ) => {
+  const login = async (values: IValuesLogin, onSubmitProps: any) => {
     const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -53,10 +40,7 @@ const LoginForm = () => {
     }
   };
 
-  const handleFormSubmit = async (
-    values: IValuesRegister | IValuesLogin,
-    onSubmitProps: any
-  ) => {
+  const handleFormSubmit = async (values: IValuesLogin, onSubmitProps: any) => {
     await login(values as IValuesLogin, onSubmitProps);
   };
 
