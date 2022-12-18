@@ -59,7 +59,8 @@ const RegisterForm = () => {
 
     if (savedUser) {
       // setPageType("login");
-      navigate("/login");
+      // navigate("/login");
+      location.reload();
     }
   };
 
